@@ -1,0 +1,11 @@
+.location{
+    font-weight: 400;
+    line-height: 1.5;
+    color: $colorPrimary;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #e5e5e6;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}

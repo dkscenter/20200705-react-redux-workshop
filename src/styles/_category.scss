@@ -1,0 +1,32 @@
+.category-list{
+    a{
+        text-decoration: none;
+    }
+    .category-box {
+        margin-top: 15px;
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        height: 150px;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0rem 1rem rgba(31, 45, 61, 0.125) !important; 
+        .category-img {
+            flex: 2;
+            img{
+                width: 100%; 
+                object-fit: cover;
+            }
+        }
+        .category-detail {
+            background-color: #2b3b4b;
+            color: white;
+            padding: 10px;
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+          }
+    }
+}
