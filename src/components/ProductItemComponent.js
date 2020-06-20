@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import {withRouter} from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class ProductItem extends Component {
+class ProductItemComponent extends Component {
     render() {
-        let { id } = this.props.match.params;
+        let { categoryId, productId } = this.props.match.params;
         return (
             <div className="product-item">
                 <div className="product-img">
-                    <img src={`/images/01/0${id}.webp`} alt="SPINACH SOUP"/>
+                    <img src={`/images/${categoryId}/${productId}.webp`} alt="SPINACH SOUP"/>
                 </div>
                 <a href="#">
                     <div className="add-cart">
@@ -27,4 +27,4 @@ class ProductItem extends Component {
     }
 }
 
-export default withRouter(ProductItem);
+export default withRouter(ProductItemComponent);

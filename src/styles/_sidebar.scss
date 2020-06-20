@@ -16,6 +16,11 @@
                 background: lighten($colorPrimary,10);
                 padding: 5px 10px;
             }
+            button{
+                background: none;
+                border: none;
+                color: #fff;
+            }
         }
     }
     .cart-checkout{

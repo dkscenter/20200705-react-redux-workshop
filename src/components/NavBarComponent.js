@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {Link} from 'react-router-dom';
 import {StoreContext} from '../context/store-context';
-class NavBar extends Component {
+class NavBarComponent extends Component {
     render() {
         return (
             <StoreContext.Consumer>
@@ -26,5 +26,5 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+export default NavBarComponent;
 
