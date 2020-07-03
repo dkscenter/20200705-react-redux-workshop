@@ -25,10 +25,10 @@ class ProductListComponent extends Component {
     render() {
         let {category} = this.state;
         return (
-            <div className="product-list">
+            <div className="product-list row">
                 {category.products && category.products.map(product=>(
                     <div 
-                    className="product-overlay" 
+                    className="product-overlay col-sm-6 col-md-4 col-lg-3" 
                     key={`product-${product.productNumber}`}>
                         <Link to={`/category/${category.categoryNumber}/product/${product.productNumber}`}>
                             <div className="product-item">

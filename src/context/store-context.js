@@ -1,20 +1,11 @@
 import React from 'react';
 
+let localCart = localStorage.getItem('cart');
 export const store = {
     cart: {
         isOpen: false,
-        products: [
-            {
-                productName: "Test1",
-                productNumber: "01",
-                amount: 1
-            },
-            {
-                productName: "Test2",
-                productNumber: "02",
-                amount: 2
-            }
-        ]
+        isAnimate: false,
+        products: localCart ? JSON.parse(localCart) : []
     }
 };
   

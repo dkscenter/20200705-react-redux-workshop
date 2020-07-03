@@ -8,20 +8,35 @@ class CartComponent extends Component {
   render() {
     return (
       <StoreContext.Consumer>
-        {({ store, toggleCart, addCartAmount }) => {
+        {({ store, toggleCart, addCartAmount, withComma }) => {
           let { products } = store.cart;
+          console.log(products, products.length);
+          let totalPrice =
+            products.length <= 1
+              ? products.length <= 0
+                ? 0
+                : products[0].productPrice * products[0].amount
+              : products.reduce((accumulator, product) =>
+                  accumulator.productPrice
+                    ? (accumulator.productPrice * accumulator.amount) +
+                      (product.productPrice * product.amount)
+                    : accumulator + (product.productPrice * product.amount)
+                );
           return (
             <Sidebar
-              sidebar={ products.length <= 0 ? (
-                <div className="sidebar">No item</div>
-              ) : (
+              sidebar={
+                products.length <= 0 ? (
+                  <div className="sidebar">No item</div>
+                ) : (
                   <div className="sidebar">
-                    {products.map((product,index) => (
+                    {products.map((product, index) => (
                       <div
                         className="cart-item"
                         key={"product-cart-" + product.productNumber}
                       >
-                        <div className="product-name">{product.productName}</div>
+                        <div className="product-name">
+                          ฿{product.productPrice} {product.productName}
+                        </div>
                         <div className="cart-amount">
                           <button
                             onClick={() => {
@@ -32,7 +47,7 @@ class CartComponent extends Component {
                             <FontAwesomeIcon icon={["fas", "minus"]} />
                           </button>
                           <div className="cart-amount-value">
-                            {product.amount}
+                            {withComma(product.amount)}
                           </div>
                           <button
                             onClick={() => {
@@ -45,8 +60,13 @@ class CartComponent extends Component {
                         </div>
                       </div>
                     ))}
-
-                    <Button className="cart-checkout" size="sm" color="secondary">
+                    <hr />
+                    Total Price: ฿{withComma(totalPrice)}
+                    <Button
+                      className="cart-checkout"
+                      size="sm"
+                      color="secondary"
+                    >
                       Checkout
                     </Button>
                   </div>
@@ -58,8 +78,9 @@ class CartComponent extends Component {
                 sidebar: {
                   background: "rgb(43, 59, 75)",
                   position: store.cart.isOpen ? "fixed" : "absolute",
-                  width: "80%",
+                  minWidth: 300,
                   color: "#fff",
+                  zIndex: "99",
                 },
               }}
               pullRight={true}

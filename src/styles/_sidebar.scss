@@ -7,10 +7,15 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 10px;
+        .product-name{
+            width: 70%;
+            height: 1em;
+            overflow: hidden;
+        }
         .cart-amount{
             display: flex;
             justify-content: space-between;
-            width: 100px;
+            width: 30%;
             align-items: center;
             .cart-amount-value{
                 background: lighten($colorPrimary,10);
